@@ -1,5 +1,17 @@
 # dnd ci/cd changelog
 
+# [3.0.0](https://github.com/N-D-Duy/dnd-ci-cd/compare/v2.0.0...v3.0.0) (2024-08-02)
+
+
+### Features
+
+* update workflows ([b31e4dd](https://github.com/N-D-Duy/dnd-ci-cd/commit/b31e4dde62ef76b1b8f8370721d1d8b6485959b3))
+
+
+### BREAKING CHANGES
+
+* update image file
+
 # [2.0.0](https://github.com/N-D-Duy/dnd-ci-cd/compare/v1.0.0...v2.0.0) (2024-08-02)
 
 
