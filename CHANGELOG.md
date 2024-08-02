@@ -1,0 +1,27 @@
+# dnd ci/cd changelog
+
+# [2.0.0](https://github.com/N-D-Duy/dnd-ci-cd/compare/v1.0.0...v2.0.0) (2024-08-02)
+
+
+### Features
+
+* add health check ([d9e9754](https://github.com/N-D-Duy/dnd-ci-cd/commit/d9e9754bb145a7e18f2767c7ba4cc6b1069e6bf3))
+* get users ([0cdff1d](https://github.com/N-D-Duy/dnd-ci-cd/commit/0cdff1d49869cef6568b5d01830519324fbe7cf5))
+
+
+### BREAKING CHANGES
+
+* Add health check in app controller
+* Add get user feature in app folder
+
+# 1.0.0 (2024-08-02)
+
+
+### Features
+
+* changes welcome message ([74795b1](https://github.com/N-D-Duy/dnd-ci-cd/commit/74795b147bc864791cba573a074ba1585c783187))
+
+
+### BREAKING CHANGES
+
+* Message changed from "Hello World!" to "Hello"
