@@ -1,4 +1,4 @@
-FROM node:16-alpine as build
+FROM node:20 as build
 
 # Create app directory
 WORKDIR /usr/src/build
@@ -14,7 +14,7 @@ RUN yarn build
 
 RUN yarn install --frozen-lockfile 
 
-FROM node:16-alpine as prod
+FROM node:20 as prod
 
 WORKDIR /usr/src/app
 
