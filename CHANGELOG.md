@@ -1,5 +1,12 @@
 # dnd ci/cd changelog
 
+## [3.0.2](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.1...v3.0.2) (2024-08-02)
+
+
+### Bug Fixes
+
+* remove ' from image file ([ab15c51](https://github.com/N-D-Duy/dnd-ci-cd/commit/ab15c51619deb8c73334253d71e49b5191d8040d))
+
 ## [3.0.1](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.0...v3.0.1) (2024-08-02)
 
 
