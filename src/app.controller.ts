@@ -14,4 +14,9 @@ export class AppController {
   getUsers(): string[] {
     return this.appService.getUsers();
   }
+
+  @Get('/healthz')
+  healthCheck() {
+    return 'OK';
+  }
 }
