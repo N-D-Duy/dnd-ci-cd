@@ -4,7 +4,8 @@ on:
   release:
     types: [published]
 env:
-  SERVICE_NAME: nest-application # TODO: Change this to your service name
+  SERVICE_NAME: dnd-ci-cd # TODO: Change this to your service name
+  RELEASE_VERSION: latest
 jobs:
   image:
     name: 'Build and Deploy'
@@ -44,6 +45,6 @@ jobs:
       - name: Deploy to Kubernetes
         uses: deliverybot/kubectl@v1
         with:
-          args: apply -f k8s/deployment.yaml
+          args: apply -f k8s
         env:
           KUBECONFIG: ${{ secrets.KUBE_CONFIG }}

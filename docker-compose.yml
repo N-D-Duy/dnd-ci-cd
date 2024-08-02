@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  app:
+    image: dnd-ci-cd:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge

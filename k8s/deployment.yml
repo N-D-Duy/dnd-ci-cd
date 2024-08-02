@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dnd-ci-cd-deployment
+  labels:
+    app: dnd-ci-cd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dnd-ci-cd
+  template:
+    metadata:
+      labels:
+        app: dnd-ci-cd
+    spec:
+      containers:
+      - name: dnd-ci-cd
+        image: registry.digitalocean.com/duydev-registry/dnd-ci-cd:latest
+        ports:
+        - containerPort: 3000
