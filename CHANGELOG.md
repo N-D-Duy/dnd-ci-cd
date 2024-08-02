@@ -1,5 +1,12 @@
 # dnd ci/cd changelog
 
+## [3.0.1](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.0...v3.0.1) (2024-08-02)
+
+
+### Bug Fixes
+
+* change node version in dockerfile ([845c860](https://github.com/N-D-Duy/dnd-ci-cd/commit/845c8601cbe16954042295b7ad3132ea1e0e19a5))
+
 # [3.0.0](https://github.com/N-D-Duy/dnd-ci-cd/compare/v2.0.0...v3.0.0) (2024-08-02)
 
 
