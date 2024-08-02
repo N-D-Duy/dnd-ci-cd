@@ -1,5 +1,12 @@
 # dnd ci/cd changelog
 
+## [3.0.3](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.2...v3.0.3) (2024-08-02)
+
+
+### Bug Fixes
+
+* add deployment name to github secret ([7a29ed9](https://github.com/N-D-Duy/dnd-ci-cd/commit/7a29ed99dfd62316bad863a36cc36ca8023b0a21))
+
 ## [3.0.2](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.1...v3.0.2) (2024-08-02)
 
 
