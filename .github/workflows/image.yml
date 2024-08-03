@@ -5,7 +5,6 @@ on:
     types: [published]
 env:
   SERVICE_NAME: dnd-ci-cd # TODO: Change this to your service name
-  RELEASE_VERSION: latest
 jobs:
   image:
     name: 'Build and Deploy'
@@ -23,28 +22,38 @@ jobs:
 
       - run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
-      - name: Login to DigitalOcean Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: registry.digitalocean.com
-          username: ${{ secrets.DOC_USERNAME }}
-          password: ${{ secrets.DOC_PASSWORD }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v3
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
         with:
-          push: true
-          tags: registry.digitalocean.com/${{ secrets.DOC_PROJECT_NAME }}/${{ env.SERVICE_NAME }}:${{ env.RELEASE_VERSION }}
-          build-args: |
-            "SERVICE_VERSION=${{ env.RELEASE_VERSION }}"
-          secrets: |
-            "token=${{ secrets.PAT }}"
-          secret-files: |
-            "npmrc=${{ env.NPM_CONFIG_USERCONFIG }}"
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-      - name: Deploy to Kubernetes
-        uses: deliverybot/kubectl@v1
-        with:
-          args: apply -f k8s
-        env:
-          KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
+      - name: Build container image
+        run: docker build -t registry.digitalocean.com/${{secrets.REGISTRY_NAME}}/${{env.SERVICE_NAME}}:${{env.RELEASE_VERSION}} .
+        
+      - name: Log in to DigitalOcean Container Registry with short-lived credentials
+        run: doctl registry login --expiry-seconds 1200
+        
+      - name: Push image to DigitalOcean Container Registry
+        run: docker push registry.digitalocean.com/${{secrets.REGISTRY_NAME}}/${{env.SERVICE_NAME}}:${{env.RELEASE_VERSION}}
+
+      - name: test docker pull
+        run: docker pull registry.digitalocean.com/${{secrets.REGISTRY_NAME}}/${{env.SERVICE_NAME}}:${{env.RELEASE_VERSION}}
+
+      #- name: Update deployment file
+      #  run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.digitalocean.com/${{secrets.REGISTRY_NAME}}/${{env.SERVICE_NAME}}:${{env.RELEASE_VERSION}}|' $GITHUB_WORKSPACE/k8s/deployment.yml
+      - name: Update deployment file
+        run: sed -i "s|registry.digitalocean.com/${{secrets.REGISTRY_NAME}}/${{env.SERVICE_NAME}}:.*|registry.digitalocean.com/${{secrets.REGISTRY_NAME}}/${{env.SERVICE_NAME}}:${{env.RELEASE_VERSION}}|" $GITHUB_WORKSPACE/k8s/deployment.yml
+
+
+      - name: Save DigitalOcean kubeconfig with short-lived credentials
+        run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{secrets.DOC_CLUSTER_NAME}}
+      
+      - name: Deploy to DigitalOcean Kubernetes
+        run: kubectl apply -f $GITHUB_WORKSPACE/k8s
+      
+      
+      - name: Verify deployment
+        run: kubectl rollout status deployment/${{secrets.DOC_DEPLOYMENT_NAME}}
+      
+ 
