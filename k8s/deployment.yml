@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: dnd-ci-cd
-        image: registry.digitalocean.com/duydev-container/dnd-ci-cd:lastest
+        image: registry.digitalocean.com/duydev-container/dnd-ci-cd:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
