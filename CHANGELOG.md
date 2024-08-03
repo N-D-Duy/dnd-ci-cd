@@ -1,5 +1,12 @@
 # dnd ci/cd changelog
 
+## [3.0.4](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.3...v3.0.4) (2024-08-03)
+
+
+### Bug Fixes
+
+* add load balancer in image.yaml ([9ec3832](https://github.com/N-D-Duy/dnd-ci-cd/commit/9ec3832441a1a7ef11d27a419630d6f7d06af43e))
+
 ## [3.0.3](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.2...v3.0.3) (2024-08-02)
 
 
