@@ -1,5 +1,12 @@
 # dnd ci/cd changelog
 
+## [3.0.5](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.4...v3.0.5) (2024-08-03)
+
+
+### Bug Fixes
+
+* change container registry name in deployment.yaml ([486064c](https://github.com/N-D-Duy/dnd-ci-cd/commit/486064c5b8b30dac836784401f006f477f31f401))
+
 ## [3.0.4](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.3...v3.0.4) (2024-08-03)
 
 
