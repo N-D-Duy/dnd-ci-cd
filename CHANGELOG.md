@@ -1,5 +1,13 @@
 # dnd ci/cd changelog
 
+## [3.0.7](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.6...v3.0.7) (2024-08-03)
+
+
+### Bug Fixes
+
+* change tag image from container registry ([c95b4ae](https://github.com/N-D-Duy/dnd-ci-cd/commit/c95b4ae2334a382a2ee5b69e878bd60324719e2a))
+* update deployment file ([d7b5d9d](https://github.com/N-D-Duy/dnd-ci-cd/commit/d7b5d9de8eb3c0de677bbb3ed8399447472e501d))
+
 ## [3.0.6](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.5...v3.0.6) (2024-08-03)
 
 
