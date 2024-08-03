@@ -1,5 +1,12 @@
 # dnd ci/cd changelog
 
+## [3.0.6](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.5...v3.0.6) (2024-08-03)
+
+
+### Bug Fixes
+
+* deployment to k8s ([fee243e](https://github.com/N-D-Duy/dnd-ci-cd/commit/fee243e66549adf844ce24f47d31203287031137))
+
 ## [3.0.5](https://github.com/N-D-Duy/dnd-ci-cd/compare/v3.0.4...v3.0.5) (2024-08-03)
 
 
